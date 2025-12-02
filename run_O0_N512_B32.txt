@@ -1,0 +1,22 @@
+Matrix size N = 512 (N x N)
+Block size (for blocked version) = 32
+Repetitions per variant = 3
+
+Correctness check (N_test = 64):
+  max |C_ijk - C_ikj| = 0
+  max |C_ijk - C_blk| = 0
+
+[Reference] matmul_ijk single run: 2.68882 s
+
+matmul_ijk (i-j-k order):
+  best time over 3 runs = 2.65335 s
+  max |C_ref - C_this| = 0
+
+matmul_ikj (i-k-j order):
+  best time over 3 runs = 0.390302 s
+  max |C_ref - C_this| = 0
+
+matmul_blocked:
+  best time over 3 runs = 0.562835 s
+  max |C_ref - C_this| = 0
+
